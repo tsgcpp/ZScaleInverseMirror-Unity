@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 866268692}
   - component: {fileID: 866268695}
   - component: {fileID: 866268694}
-  - component: {fileID: 866268696}
+  - component: {fileID: 866268693}
   m_Layer: 12
   m_Name: Mirror
   m_TagString: Untagged
@@ -455,6 +455,22 @@ Transform:
   m_Father: {fileID: 376982855}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!114 &866268693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866268691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dfe4127b4c1b6744ac213d1dd8ebe9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirror: {fileID: 866268692}
+  cullingMask:
+    serializedVersion: 2
+    m_Bits: 23
 --- !u!23 &866268694
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -502,22 +518,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866268691}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &866268696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866268691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dfe4127b4c1b6744ac213d1dd8ebe9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mirror: {fileID: 866268692}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 55
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

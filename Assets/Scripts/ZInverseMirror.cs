@@ -13,7 +13,8 @@ public class ZInverseMirror : MonoBehaviour
     private Transform mirror;
 
     [SerializeField]
-    private LayerMask layerMask;
+    [Tooltip("鏡用カメラのカリングマスク")]
+    private LayerMask cullingMask;
 
     private Camera mirrorCamera;
 
@@ -72,7 +73,7 @@ public class ZInverseMirror : MonoBehaviour
 
         var camera = cameraObj.GetComponent<Camera>();
         camera.enabled = false;
-        camera.cullingMask = layerMask;
+        camera.cullingMask = cullingMask;
 
         return camera;
     }
