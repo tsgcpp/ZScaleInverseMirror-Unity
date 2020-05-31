@@ -90,9 +90,10 @@ public class ZInverseMirror : MonoBehaviour
 
     private RenderTexture CreateMirrorTexture()
     {
+        Rect rect = Camera.main.pixelRect;
         return RenderTexture.GetTemporary(
-            width: Screen.width,
-            height: Screen.height);
+            width: Mathf.CeilToInt(rect.width),
+            height: Mathf.CeilToInt(rect.height));
     }
 
     private void ReleaseMirrorTexture(RenderTexture texture)
