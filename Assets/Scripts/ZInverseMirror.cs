@@ -40,11 +40,11 @@ public class ZInverseMirror : MonoBehaviour
         }
 
         mirrorCamera.worldToCameraMatrix = CalculateMirrorViewMatrix(camera);
-        mirrorCamera.targetTexture = renderTexture;
 
         if (renderTexture == null) {
             renderTexture = CreateMirrorTexture();
         }
+        mirrorCamera.targetTexture = renderTexture;
         rendererMaterial.mainTexture = renderTexture;
 
         bool oldCulling = GL.invertCulling;
@@ -60,6 +60,7 @@ public class ZInverseMirror : MonoBehaviour
         }
 
         rendererMaterial.mainTexture = null;
+        mirrorCamera.targetTexture = null;
         ReleaseMirrorTexture(renderTexture);
 
         renderTexture = null;
