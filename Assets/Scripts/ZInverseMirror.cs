@@ -39,12 +39,16 @@ public class ZInverseMirror : MonoBehaviour
             return;
         }
 
-        mirrorCamera.worldToCameraMatrix = CalculateMirrorViewMatrix(camera);
-
         if (renderTexture == null) {
             renderTexture = CreateMirrorTexture();
+            mirrorCamera.targetTexture = renderTexture;
+            
+            // targetTextureを設定するとprojectionMatrixが更新されてしまうため、
+            // 対象のカメラのもので上書き
+            mirrorCamera.projectionMatrix = camera.projectionMatrix;
         }
-        mirrorCamera.targetTexture = renderTexture;
+
+        mirrorCamera.worldToCameraMatrix = CalculateMirrorViewMatrix(camera);
         rendererMaterial.mainTexture = renderTexture;
 
         bool oldCulling = GL.invertCulling;
@@ -69,7 +73,10 @@ public class ZInverseMirror : MonoBehaviour
     private Camera CreateCamera()
     {
         var cameraObj = new GameObject("Mirror Camera", typeof(Camera));
-        cameraObj.transform.parent = this.transform;
+        
+        // Cameraの親オブジェクトのスケールで影がおかしくなるため、親を設定しない
+        // cameraObj.transform.parent = this.transform;
+
         cameraObj.hideFlags = HideFlags.HideAndDontSave;
 
         var camera = cameraObj.GetComponent<Camera>();
