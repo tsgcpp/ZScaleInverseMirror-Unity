@@ -33,6 +33,12 @@ public class ZInverseMirrorCamera : MonoBehaviour
         selfCamera.worldToCameraMatrix =
             targetCamera.worldToCameraMatrix *
             mirrorMatrix;
+
+        selfCamera.projectionMatrix = targetCamera.projectionMatrix;
+
+        // 影の描画に使用されるため対象のカメラに合わせる
+        selfCamera.fieldOfView = targetCamera.fieldOfView;
+        selfCamera.aspect = targetCamera.aspect;
     }
 
     void OnPreRender()
