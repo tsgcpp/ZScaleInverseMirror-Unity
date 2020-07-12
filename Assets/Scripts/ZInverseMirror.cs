@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 /// <summary>
 /// WARNING: `UWP, HDRPは非対応
 /// </summary>
@@ -38,6 +42,12 @@ public class ZInverseMirror : MonoBehaviour
         if (camera == null || camera == mirrorCamera) {
             return;
         }
+
+#if UNITY_EDITOR
+        if (camera == SceneView.lastActiveSceneView.camera) {
+            return;
+        }
+#endif
 
         if (renderTexture == null) {
             renderTexture = CreateMirrorTexture();
