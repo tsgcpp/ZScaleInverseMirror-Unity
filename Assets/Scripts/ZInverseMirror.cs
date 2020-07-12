@@ -56,6 +56,10 @@ public class ZInverseMirror : MonoBehaviour
             // targetTextureを設定するとprojectionMatrixが更新されてしまうため、
             // 対象のカメラのもので上書き
             mirrorCamera.projectionMatrix = camera.projectionMatrix;
+
+            // 影の描画に使用されるため対象のカメラに合わせる
+            mirrorCamera.fieldOfView = camera.fieldOfView;
+            mirrorCamera.aspect = camera.aspect;
         }
 
         mirrorCamera.worldToCameraMatrix = CalculateMirrorViewMatrix(camera);
