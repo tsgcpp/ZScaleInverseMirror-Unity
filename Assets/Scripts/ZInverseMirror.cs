@@ -91,8 +91,6 @@ public class ZInverseMirror : MonoBehaviour
         // Cameraの親オブジェクトのスケールで影がおかしくなるため、親を設定しない
         // cameraObj.transform.parent = this.transform;
 
-        cameraObj.hideFlags = HideFlags.HideAndDontSave;
-
         var camera = cameraObj.GetComponent<Camera>();
         camera.enabled = false;
         camera.cullingMask = cullingMask;
